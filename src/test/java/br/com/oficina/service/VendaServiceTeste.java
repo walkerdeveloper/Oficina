@@ -3,6 +3,7 @@ package br.com.oficina.service;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -24,5 +25,13 @@ public class VendaServiceTeste {
 		venda.setValorTotalDaCompra(new BigDecimal(200));
 		
 		service.saveOrUpdate(venda);
+	}
+	
+	@Test
+	public void selecionarTodasAsVendas() {
+		List<Venda> vendas = this.service.getAll();
+		for (Venda venda : vendas) {
+			venda.toString();
+		}
 	}
 }
