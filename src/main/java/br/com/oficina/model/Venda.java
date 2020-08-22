@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,6 +32,8 @@ public class Venda implements Serializable{
 	private Date dhVenda;
 	
 	@ManyToMany
+	@JoinTable( name = "venda_produto"
+			   ,joinColumns= @JoinColumn(name="id_produto"))
 	private List<Produto> produtos;
 	
 	private BigDecimal valorTotalDaCompra;
