@@ -28,6 +28,10 @@ public class VeiculoDao extends GenericDAO<Veiculo> implements IVeiculo {
 			if(!lista.isEmpty()) {
 				retorno = lista.get(0);
 			}
+			
+			if(lista.size() > 1) {
+				throw new Exception("A consulta retornou mais de um veículo para a mesma placa");
+			}
 		} catch (Exception e) {
 			throw new Exception("Ocorreu o seguinte erro durante a busca da placa: " + e.getMessage());
 		}
