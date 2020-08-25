@@ -8,20 +8,24 @@ import java.util.Calendar;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import br.com.oficina.dao.ClienteDao;
 import br.com.oficina.model.Veiculo;
 
 public class VeiculoServiceTeste {
 
 	VeiculoService service = new VeiculoService();
+	ClienteService clienteService = new ClienteService();
 	
 	@Test
 	public void inserirVeiculo() throws NegocioException {
+		
 		Veiculo veiculo = new Veiculo();
 		veiculo.setCor("Vermelho");
 		veiculo.setDataCadastro(Calendar.getInstance());
 		veiculo.getFabricante().setId(1L);
 		veiculo.setModelo("Corolla");
 		veiculo.setPlaca("ABC-1234");
+		veiculo.setCliente(this.clienteService.findById(1L));
 		
 		this.service.save(veiculo);
 	}
