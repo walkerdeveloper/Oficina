@@ -34,4 +34,9 @@ public class ClienteService implements ICliente {
 		return this.dao.getAll();
 	}
 
+	@Override
+	public Cliente findById(Long id) {
+		return this.dao.findById(id);
+	}
+
 }
