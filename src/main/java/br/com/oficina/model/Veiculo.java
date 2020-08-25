@@ -18,10 +18,11 @@ public class Veiculo implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	public Veiculo() {this.fabricante = new Fabricante(); this.cliente = new Cliente();}
+	public Veiculo() {this.cliente = new Cliente(); this.fabricante = new Fabricante(); }
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cd_veiculo")
 	private Long id;
 	
 	@Column(nullable = false)

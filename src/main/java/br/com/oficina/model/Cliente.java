@@ -2,11 +2,15 @@ package br.com.oficina.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,19 +21,41 @@ public class Cliente implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cd_cliente")
 	private Long id;
+	
+	@Column(nullable = false, name = "nome_completo")
 	private String nomeCompleto;
 	
 	@Temporal(TemporalType.DATE)
+	@Column(name = "dt_nascimento")
 	private Calendar dtNascimento;
 	
 	@Temporal(TemporalType.DATE)
+	@Column(name = "dt_cadastro")
 	private Calendar dtCadastro;
 	
+	@OneToMany
+	@JoinColumn(name = "cd_venda")
+	private List<Venda> vendas;
+	
+	@OneToMany
+	@JoinColumn(name = "cd_veiculo")
+	private List<Veiculo> veiculos;
+	
+	@Column(name = "nr_cep")
 	private String nrCep;
+	
+	@Column(name = "ds_rua")
 	private String rua;
+	
+	@Column(name = "ds_bairro")
 	private String bairro;
+	
+	@Column(name = "ds_nm")
 	private String cidade;
+	
+	@Column(name = "cd_uf")
 	private String uf;
 	
 	
@@ -88,6 +114,12 @@ public class Cliente implements Serializable{
 		this.uf = uf;
 	}
 	
+	public List<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+	public void setVeiculos(List<Veiculo> veiculos) {
+		this.veiculos = veiculos;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

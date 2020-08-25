@@ -1,21 +1,32 @@
 package br.com.oficina.model;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Fabricante {
+public class Fabricante implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cd_fabricante")
 	private Long id;
 	
 	@Column(nullable = false)
 	private String descricao;
 	
+	@OneToMany
+	@JoinColumn(name = "cd_veiculo")
+	private List<Veiculo> veiculos;
 	
 	public Long getId() {
 		return id;
@@ -29,7 +40,12 @@ public class Fabricante {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+	public List<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+	public void setVeiculos(List<Veiculo> veiculos) {
+		this.veiculos = veiculos;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

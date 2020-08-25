@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -17,6 +18,7 @@ public class Usuario implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cd_usuario")
 	private Long id;
 	
 	@Column(nullable = false)
@@ -29,6 +31,7 @@ public class Usuario implements Serializable{
 	private String senha;
 	
 	@OneToMany
+	@JoinColumn(name ="cd_venda")
 	private List<Venda> vendas;
 	
 	public Long getId() {
