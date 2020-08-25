@@ -5,6 +5,7 @@ import java.util.Calendar;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import br.com.oficina.dao.VeiculoDao;
 import br.com.oficina.model.Cliente;
 import br.com.oficina.model.Veiculo;
 
@@ -33,7 +34,10 @@ public class ClienteServiceTeste {
 	
 	@Test
 	public void listarVeiculosDeCliente() {
+		VeiculoDao dao = new VeiculoDao();
+		
 		for (Cliente c : this.service.getAll()) {
+			c.setVeiculos(dao.getAll());
 			for (Veiculo v : c.getVeiculos()) {
 				System.out.println(v.toString());
 			}
