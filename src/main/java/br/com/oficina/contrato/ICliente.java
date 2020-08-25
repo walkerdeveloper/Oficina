@@ -10,4 +10,5 @@ public interface ICliente {
 	void saveOrUpdate(Cliente cliente) throws NegocioException;
 	void delete(Cliente cliente);
 	List<Cliente> getAll();
+	Cliente findById(Long id);
 }

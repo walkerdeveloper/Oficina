@@ -23,5 +23,10 @@ public class ClienteDao extends GenericDAO<Cliente> implements ICliente{
 	public List<Cliente> getAll() {
 		return super.getAll();
 	}
+	
+	@Override
+	public Cliente findById(Long id) {
+		return (Cliente) super.findById(id);
+	}
 
 }

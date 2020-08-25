@@ -126,4 +126,9 @@ public class Veiculo implements Serializable{
 		return true;
 	}
 	
+	@Override
+	public String toString() {
+		return "Código: " + this.id + "\nModelo: " + this.modelo + "\nPlaca: " + this.placa;
+	}
+	
 }
