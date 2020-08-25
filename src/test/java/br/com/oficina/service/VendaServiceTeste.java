@@ -22,7 +22,7 @@ public class VendaServiceTeste {
 		venda.setDhVenda(new Date());
 		venda.setDtVenda(Calendar.getInstance());
 		venda.setProdutos(dao.getAll());
-		venda.setValorTotalDaCompra(new BigDecimal(200));
+		venda.setValorTotalDaVenda(new BigDecimal(200));
 		
 		service.saveOrUpdate(venda);
 	}
