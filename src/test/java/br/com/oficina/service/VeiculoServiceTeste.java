@@ -8,7 +8,6 @@ import java.util.Calendar;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.oficina.dao.ClienteDao;
 import br.com.oficina.model.Veiculo;
 
 public class VeiculoServiceTeste {
